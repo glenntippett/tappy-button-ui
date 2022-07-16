@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 
-const CatalogScreen = () => (
+const LeaderboardScreen = () => (
   <View style={styles.layout}>
     <Text style={styles.title}>Catalog</Text>
   </View>
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { CatalogScreen };
+export { LeaderboardScreen };
