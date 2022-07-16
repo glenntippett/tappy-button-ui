@@ -1,14 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
-import Button from "./../../components/button/";
+import { StyleSheet, View, Text } from "react-native";
+import Button from "../../components/button";
 
-const FeedScreen = () => (
-  <View style={styles.layout}>
+const Game = () => (
+  <View style={styles.container}>
     <Button text="Press Me!" />
   </View>
 );
 
 const styles = StyleSheet.create({
-  layout: {
+  container: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { FeedScreen };
+export { Game };
