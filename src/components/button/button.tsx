@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { TouchableOpacity, Text } from "react-native";
 import useCountDown from "../../hooks/useCountDown";
 import styles from "./buttonStyles";
+import * as Haptics from 'expo-haptics';
 
 type ButtonProps = {
   text: string;
@@ -11,9 +12,13 @@ const Button = ({ text }: ButtonProps): JSX.Element => {
   const [count, setCount] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
   const { time, start, stop, resetTime } = useCountDown();
+  const [isHapticsEnabled, setIsHapticsEnabled] = useState(true);
 
   const handlePress = (): void => {
     setCount(count + 1);
+    if (isHapticsEnabled) {
+      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+    }
   };
 
   const handleResetPress = (): void => {
@@ -46,6 +51,10 @@ const Button = ({ text }: ButtonProps): JSX.Element => {
       <Text>{time}</Text>
       <TouchableOpacity onPress={() => start()}>
         <Text>Start</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => setIsHapticsEnabled(!isHapticsEnabled)}>
+        <Text>Toggle Haptics</Text>
       </TouchableOpacity>
     </>
   );
