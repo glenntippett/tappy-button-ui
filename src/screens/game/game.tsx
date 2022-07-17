@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 import Button from "../../components/button";
 
-const Game = () => (
+const Game = (): JSX.Element => (
   <View style={styles.container}>
     <Button text="Press Me!" />
   </View>

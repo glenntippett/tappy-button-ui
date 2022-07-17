@@ -1,8 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "../screens/home";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons'; 
 import Profile from "../screens/profile";
 import Game from "../screens/game";
+import Leaderboard from "../screens/leaderboard";
 
 const Tab = createBottomTabNavigator();
 
@@ -31,6 +33,16 @@ const Navigator = (): JSX.Element => {
           tabBarLabel: "Game",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="play" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Leaderboard"
+        component={Leaderboard}
+        options={{
+          tabBarLabel: "Leaderboard",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialIcons name="leaderboard" color={color} size={size} />
           ),
         }}
       />
